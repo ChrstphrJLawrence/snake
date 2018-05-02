@@ -13,6 +13,7 @@ public class MainApp extends PApplet {
     int w, h;
     int initAppleX, initAppleY;
     LinkedList<SnakePart> snake;
+    int highScore = 0;
 
     public static void main(String[] args) {
         PApplet.main("MainApp", args);
@@ -96,15 +97,18 @@ public class MainApp extends PApplet {
         fill(0, 100, 0);
         rect(0, 400, 400, 100);
         if (loser == true) {
+            if (points > highScore) {
+                highScore = points;
+            }
             textFont(f, 28);
             fill(0);
-            text("Points: " + points, 125, 435);
+            text("Points: " + points + "  |  High Score: " + highScore, 50, 435);
             fill(255, 0, 0);
             textFont(f, 36);
             text("YOU LOSE",100,475);
             textFont(f, 16);
             fill(0);
-            text("Press 'r' to restart.", 10, 492);
+            text("Press 'r' to restart.", 10, 495);
             if (key == 'r') {
                 setup();
             }
@@ -135,7 +139,7 @@ public class MainApp extends PApplet {
 
             textFont(f, 28);
             fill(0);
-            text("Points: " + points, 125, 435);
+            text("Points: " + points + "  |  High Score: " + highScore, 50, 435);
             for (int i = 0; i < h; i++) {
                 for (int j = 0; j < w; j++) {
                     if (gameBoard.get(i).get(j).equals(CellState.EMPTY)) {
