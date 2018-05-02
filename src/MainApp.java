@@ -102,6 +102,12 @@ public class MainApp extends PApplet {
             fill(255, 0, 0);
             textFont(f, 36);
             text("YOU LOSE",100,475);
+            textFont(f, 16);
+            fill(0);
+            text("Press 'r' to restart.", 10, 492);
+            if (key == 'r') {
+                setup();
+            }
         }
         else if (points > 1598) {
             textFont(f, 28);
