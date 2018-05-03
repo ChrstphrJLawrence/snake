@@ -93,6 +93,10 @@ public class MainApp extends PApplet {
         }
     }
 
+    public void drawScoreboard() {
+        text("Points: " + points + "  |  High Score: " + highScore, 25, 435);
+    }
+
     public void draw() {
         fill(0, 100, 0);
         rect(0, 400, 400, 100);
@@ -102,7 +106,7 @@ public class MainApp extends PApplet {
             }
             textFont(f, 28);
             fill(0);
-            text("Points: " + points + "  |  High Score: " + highScore, 50, 435);
+            drawScoreboard();
             fill(255, 0, 0);
             textFont(f, 36);
             text("YOU LOSE",100,475);
@@ -139,7 +143,7 @@ public class MainApp extends PApplet {
 
             textFont(f, 28);
             fill(0);
-            text("Points: " + points + "  |  High Score: " + highScore, 50, 435);
+            drawScoreboard();
             for (int i = 0; i < h; i++) {
                 for (int j = 0; j < w; j++) {
                     if (gameBoard.get(i).get(j).equals(CellState.EMPTY)) {
